@@ -24,7 +24,9 @@ const Thing = conn.define('thing', {
 });
 
 Person.hasMany(Thing);
+Thing.belongsTo(Person);
 Thing.belongsTo(Place);
+Place.hasMany(Thing);
 
 const syncAndSeed = async () => {
   await conn.sync({ force: true });
